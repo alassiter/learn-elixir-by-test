@@ -10,7 +10,7 @@ defmodule Elixir101.Util do
   end
 
   def multiply(list, b) do
-    Enum.map(list, fn(number) -> number * b end)
+    Enum.map(list, fn number -> number * b end)
   end
 
   def split(string) do
@@ -18,6 +18,12 @@ defmodule Elixir101.Util do
   end
 
   def prev_num(list, number) do
-    Enum.at(list, number - 1)
+    index = Enum.find_index(list, fn x -> x == number end)
+
+    if index do
+      Enum.at(list, index - 1)
+    else
+      nil
+    end
   end
 end
